@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand"><%= title %></span>
+            <div class="d-flex">
+                <a href="/admin/settings" class="btn btn-outline-light btn-sm me-2">Settings</a>
+                <a href="/admin/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <form action="/admin/service-link/list" method="GET" class="d-flex">
+                    <input type="text" name="search" class="form-control me-2" placeholder="Search service links..." value="<%= search %>">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="col-md-4 text-end">
+                <a href="/admin/service-link/create" class="btn btn-success">Create New</a>
+            </div>
+        </div>
+
+        <% if (totalPages > 1) { %>
+            <%- include('../partials/pagination', { currentPage, totalPages, search }) %>
+        <% } %>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>URL</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (serviceLinks.length === 0) { %>
+                        <tr>
+                            <td colspan="6" class="text-center">No service links found.</td>
+                        </tr>
+                    <% } else { %>
+                        <% serviceLinks.forEach(link => { %>
+                            <tr>
+                                <td><%= link.id %></td>
+                                <td><%= link.title %></td>
+                                <td><%= link.description || '-' %></td>
+                                <td><a href="<%= link.url %>" target="_blank" class="text-break"><%= link.url %></a></td>
+                                <td>
+                                    <% if (link.active) { %>
+                                        <span class="badge bg-success">Yes</span>
+                                    <% } else { %>
+                                        <span class="badge bg-danger">No</span>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <a href="/admin/service-link/edit/<%= link.id %>" class="btn btn-sm btn-primary">Edit</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <% if (totalPages > 1) { %>
+            <%- include('../partials/pagination', { currentPage, totalPages, search }) %>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

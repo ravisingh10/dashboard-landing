@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand"><%= title %></span>
+            <div class="d-flex">
+                <a href="/" class="btn btn-outline-light btn-sm me-2">Home</a>
+                <a href="/admin/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Service Links</h3>
+                        <p class="card-text">Manage service link cards displayed on the home page</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="/admin/service-link/create" class="btn btn-primary">Create New Service Link</a>
+                        <a href="/admin/service-link/list" class="btn btn-secondary">View All Service Links</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Users</h3>
+                        <p class="card-text">Manage admin users who can access this panel</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="/admin/user/create" class="btn btn-primary">Create New User</a>
+                        <a href="/admin/user/list" class="btn btn-secondary">View All Users</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
