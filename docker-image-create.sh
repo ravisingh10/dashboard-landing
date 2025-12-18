@@ -75,12 +75,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Check if Docker is installed
-if ! command -v docker &> /dev/null; then
-    print_error "Docker is not installed. Please install Docker first."
-    exit 1
-fi
-
 # Check if Dockerfile exists
 if [ ! -f "Dockerfile" ]; then
     print_error "Dockerfile not found in current directory!"
