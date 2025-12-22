@@ -1,8 +1,38 @@
 # dashboard-landing
-Dashboard Landing page for Home Server, will not have a simple few landing page
-# dashboard-landing
-Dashboard Landing page for Home Server, will not have a simple few landing page
+Dashboard Landing page for Home Server
 
+A simple and intuitive dashboard for managing and accessing services on your local network.
+
+## For Users
+
+### Accessing the Dashboard
+
+The dashboard is accessible at:
+- **Default URL:** `http://192.168.0.218:3001`
+- **Local DNS (if configured):** `http://services.list:3001`
+
+### Using the Dashboard
+
+**Landing Page Features:**
+- **Browse Services:** View all available services on your network displayed as cards (3 per row)
+- **Search:** Use the search box to find services by name or description
+- **Navigate:** Browse through pages using pagination controls (shows 30 services per page by default)
+- **Access Services:** Click on any service card to open the service in a new window/tab
+
+**How to Find Services:**
+1. Open the dashboard in your browser
+2. Type keywords in the search box (searches both service names and descriptions)
+3. Browse through paginated results using navigation buttons at top and bottom
+4. Click on any service card to access that service
+
+### Admin Access
+
+If you need to add, edit, or manage services, contact your administrator for login credentials.
+- **Admin Login:** `http://192.168.0.218:3001/admin/login` or `http://services.list:3001/admin/login`
+
+---
+
+## For Developers/Administrators
 
 This is a nodejs project for a dashboard which is hosted on the base page
 It uses PORT 3001
